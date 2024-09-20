@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  app:
+    image: 'test-coverage-cms:1.0'
+    build:
+      context: .
+      dockerfile: src/Dockerfile
+    ports:
+      - "8080:8080"
+    container_name: app
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/compose-postgres
+      - SPRING_DATASOURCE_USERNAME=compose-postgres
+      - SPRING_DATASOURCE_PASSWORD=compose-postgres
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+
+  db:
+    image: 'postgres:14.7'
+    container_name: db
+    environment:
+      - POSTGRES_USER=compose-postgres
+      - POSTGRES_PASSWORD=compose-postgres
+      - POSTGRES_DB=compose-postgres
+      - PGUSER = compose-postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db/create.sql:/docker-entrypoint-initdb.d/create.sql
+      - ./db/postgres-data:/var/lib/postgresql/data
+    restart: unless-stopped
+    healthcheck:
+      test: "pg_isready -U compose-postgres -d compose-postgres"
+      interval: 10s
+      timeout: 3s
+      retries: 3

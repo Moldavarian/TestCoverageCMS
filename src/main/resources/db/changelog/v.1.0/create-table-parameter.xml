@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet logicalFilePath="create-table-parameter"
+               id="create-table-parameter" author="moldovarian">
+        <preConditions  onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="parameter" />
+            </not>
+        </preConditions>
+        <createTable tableName="parameter">
+            <column name="id" type="serial">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="parameter_type" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_covered" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+            <column name="endpoint_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="endpoint_id"
+                                 baseTableName="parameter"
+                                 constraintName="fk_endpoint_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="endpoint"/>
+    </changeSet>
+
+</databaseChangeLog>

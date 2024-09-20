@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet logicalFilePath="insert-parameters"
+               id="insert-parameters" author="moldovarian">
+        <preConditions  onFail="MARK_RAN">
+            <tableExists tableName="parameter" />
+        </preConditions>
+        <insert tableName="parameter">
+            <column  name="name"  value="id"/>
+            <column  name="parameter_type"  value="Path"/>
+            <column  name="type"  value="Long"/>
+            <column  name="is_covered"  value="true"/>
+            <column  name="endpoint_id"  value="1"/>
+        </insert>
+        <insert tableName="parameter">
+            <column  name="name"  value="fizz-id"/>
+            <column  name="parameter_type"  value="Header"/>
+            <column  name="type"  value="Long"/>
+            <column  name="is_covered"  value="true"/>
+            <column  name="endpoint_id"  value="1"/>
+        </insert>
+        <insert tableName="parameter">
+            <column  name="name"  value="buzzing-object"/>
+            <column  name="parameter_type"  value="Header"/>
+            <column  name="type"  value="String"/>
+            <column  name="is_covered"  value="true"/>
+            <column  name="endpoint_id"  value="2"/>
+        </insert>
+        <insert tableName="parameter">
+            <column  name="name"  value="id"/>
+            <column  name="parameter_type"  value="Path"/>
+            <column  name="type"  value="Long"/>
+            <column  name="is_covered"  value="false"/>
+            <column  name="endpoint_id"  value="3"/>
+        </insert>
+        <insert tableName="parameter">
+            <column  name="name"  value="limit"/>
+            <column  name="parameter_type"  value="Path"/>
+            <column  name="type"  value="Integer"/>
+            <column  name="is_covered"  value="true"/>
+            <column  name="endpoint_id"  value="3"/>
+        </insert>
+        <insert tableName="parameter">
+            <column  name="name"  value="id"/>
+            <column  name="parameter_type"  value="Path"/>
+            <column  name="type"  value="Long"/>
+            <column  name="is_covered"  value="false"/>
+            <column  name="endpoint_id"  value="4"/>
+        </insert>
+        <insert tableName="parameter">
+            <column  name="name"  value="id"/>
+            <column  name="parameter_type"  value="Path"/>
+            <column  name="type"  value="Long"/>
+            <column  name="is_covered"  value="false"/>
+            <column  name="endpoint_id"  value="5"/>
+        </insert>
+        <insert tableName="parameter">
+            <column  name="name"  value="id"/>
+            <column  name="parameter_type"  value="Path"/>
+            <column  name="type"  value="Long"/>
+            <column  name="is_covered"  value="false"/>
+            <column  name="endpoint_id"  value="6"/>
+        </insert>
+        <insert tableName="parameter">
+            <column  name="name"  value="id"/>
+            <column  name="parameter_type"  value="Path"/>
+            <column  name="type"  value="Long"/>
+            <column  name="is_covered"  value="false"/>
+            <column  name="endpoint_id"  value="7"/>
+        </insert>
+        <insert tableName="parameter">
+            <column  name="name"  value="limit"/>
+            <column  name="parameter_type"  value="Path"/>
+            <column  name="type"  value="Integer"/>
+            <column  name="is_covered"  value="false"/>
+            <column  name="endpoint_id"  value="7"/>
+        </insert>
+        <insert tableName="parameter">
+            <column  name="name"  value="offset"/>
+            <column  name="parameter_type"  value="Path"/>
+            <column  name="type"  value="Integer"/>
+            <column  name="is_covered"  value="false"/>
+            <column  name="endpoint_id"  value="7"/>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>

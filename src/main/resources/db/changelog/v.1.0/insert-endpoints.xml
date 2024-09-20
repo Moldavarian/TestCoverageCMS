@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet logicalFilePath="insert-endpoints"
+               id="insert-endpoints" author="moldovarian">
+        <preConditions  onFail="MARK_RAN">
+            <tableExists tableName="endpoint" />
+        </preConditions>
+        <insert tableName="endpoint">
+            <column  name="name"  value="Fizzing"/>
+            <column  name="description"  value="Does Fizz"/>
+            <column  name="url"  value="https://fizz/fizzing"/>
+            <column  name="service_id"  value="1"/>
+        </insert>
+        <insert tableName="endpoint">
+            <column  name="name"  value="Buzz"/>
+            <column  name="description"  value="Does Buzz"/>
+            <column  name="url"  value="https://buzz/buzzing"/>
+            <column  name="service_id"  value="2"/>
+        </insert>
+        <insert tableName="endpoint">
+            <column  name="name"  value="X"/>
+            <column  name="description"  value="Does X"/>
+            <column  name="url"  value="https://x/xing"/>
+            <column  name="service_id"  value="3"/>
+        </insert>
+        <insert tableName="endpoint">
+            <column  name="name"  value="Y"/>
+            <column  name="description"  value="Does Y"/>
+            <column  name="url"  value="https://y/ying"/>
+            <column  name="service_id"  value="4"/>
+        </insert>
+        <insert tableName="endpoint">
+            <column  name="name"  value="Z"/>
+            <column  name="description"  value="Does Z"/>
+            <column  name="url"  value="https://z/zing"/>
+            <column  name="service_id"  value="5"/>
+        </insert>
+        <insert tableName="endpoint">
+            <column  name="name"  value="Foo"/>
+            <column  name="description"  value="Does Foo"/>
+            <column  name="url"  value="https://foo/fooing"/>
+            <column  name="service_id"  value="6"/>
+        </insert>
+        <insert tableName="endpoint">
+            <column  name="name"  value="Bar"/>
+            <column  name="description"  value="Does Bar"/>
+            <column  name="url"  value="https://bar/baring"/>
+            <column  name="service_id"  value="7"/>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>

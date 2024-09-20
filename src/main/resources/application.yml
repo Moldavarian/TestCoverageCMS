@@ -1,0 +1,34 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  datasource:
+    url: jdbc:postgresql://db:5432/compose-postgres
+    username: compose-postgres
+    password: compose-postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        ddl-auto: none
+        boot:
+          allow_jdbc_metadata_access: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  sql:
+    init:
+      mode: never
+  main:
+    allow-bean-definition-overriding: true
+  liquibase:
+      enabled: true
+      drop-first: false
+      change-log: classpath:db/changelog/db.changelog-master.xml
+      default-schema: public
+
+logging:
+  level:
+    root: info
+
